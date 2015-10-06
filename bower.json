@@ -1,0 +1,27 @@
+{
+  "name": "personal-color-palette",
+  "version": "1.0.0",
+  "authors": [
+    "Eric Heikes <eheikes@gmail.com>"
+  ],
+  "description": "Create your own color palette",
+  "keywords": [
+    "color",
+    "fashion",
+    "palette"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/eheikes/personal-color-palette",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src",
+    "test"
+  ],
+  "dependencies": {
+    "angular-material": "~0.11.2",
+    "angular": "~1.4.7",
+    "angular-route": "~1.4.7"
+  }
+}

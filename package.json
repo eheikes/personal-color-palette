@@ -1,0 +1,33 @@
+{
+  "name": "personal-color-palette",
+  "version": "1.0.0",
+  "description": "Create your own color palette",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eheikes/personal-color-palette.git"
+  },
+  "keywords": [
+    "color",
+    "fashion",
+    "palette"
+  ],
+  "author": {
+    "name": "Eric Heikes",
+    "email": "eheikes@gmail.com",
+    "url": "http://ericheikes.com/"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/eheikes/personal-color-palette/issues"
+  },
+  "homepage": "https://github.com/eheikes/personal-color-palette",
+  "devDependencies": {
+    "connect-modrewrite": "^0.8.2",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-jshint": "^1.11.2",
+    "jshint-stylish": "^2.0.1",
+    "run-sequence": "^1.1.4"
+  }
+}
