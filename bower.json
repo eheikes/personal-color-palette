@@ -20,8 +20,8 @@
     "test"
   ],
   "dependencies": {
-    "angular-material": "~0.11.2",
     "angular": "~1.4.7",
-    "angular-route": "~1.4.7"
+    "angular-route": "~1.4.7",
+    "lumx": "~0.3.93"
   }
 }
