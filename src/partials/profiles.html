@@ -1,1 +1,17 @@
-<div>Here is the profiles page</div>
+<div>
+  <ul class="list mt++">
+    <li ng-repeat="profile in profiles" class="list-row list-row--has-separator">
+      <div class="list-row__content">TODO profile info here</div>
+    </li>
+    <li class="list-row list-row--has-separator" ng-if="profiles.length === 0">
+        <div class="list-row__content">
+            <span>You don't have any profiles yet. <a href ng-click="createAndContinue()">Create one</a>.</span>
+        </div>
+    </li>
+  </ul>
+</div>
+<div class="p" align="right">
+  <button class="btn btn--m btn--primary btn--fab" lx-ripple lx-tooltip="Create New Profile" tooltip-position="left" ng-click="createAndContinue()">
+    <i class="mdi mdi-plus"></i>
+  </button>
+</div>
