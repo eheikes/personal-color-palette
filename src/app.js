@@ -9,6 +9,10 @@
       templateUrl: 'partials/profiles.html',
       controller: 'profilesController',
     })
+    .when('/photo/add', {
+      templateUrl: 'partials/addPhotos.html',
+      controller: 'addPhotosController',
+    })
     .otherwise({ redirectTo: '/profiles' });
   });
 })();
