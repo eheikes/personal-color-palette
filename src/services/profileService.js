@@ -13,7 +13,11 @@ angular.module('app').factory('profileService', function() {
   };
 
   var getProfile = function() {
-    return profiles[currentIndex];
+    if (currentIndex === null) {
+      return null;
+    } else {
+      return profiles[currentIndex];
+    }
   };
 
   var getProfiles = function() {
@@ -28,10 +32,18 @@ angular.module('app').factory('profileService', function() {
     }
   };
 
+  var addAndSelectIfEmpty = function() {
+    if (currentIndex === null) {
+      addProfile();
+      selectNewest();
+    }
+  };
+
   return {
     add: addProfile,
     get: getProfile,
     getAll: getProfiles,
+    requireProfile: addAndSelectIfEmpty,
     selectNewest: selectNewest
   };
 });
