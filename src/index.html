@@ -3,23 +3,28 @@
     <title>Personal Color Palette</title>
     <base href="/">
     <meta name="viewport" content="initial-scale=1" />
-    <link rel="stylesheet" href="libs/lumx/dist/lumx.css">
+    <!-- build:css app.css -->
+    <link rel="stylesheet" href="../bower_components/lumx/dist/lumx.css">
+    <!-- endbuild -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
   </head>
   <body>
     <app-toolbar>Personal Color Palette</app-toolbar>
     <div ng-view></div>
-    <script src="libs/jquery/dist/jquery.js"></script>
-    <script src="libs/velocity/velocity.js"></script>
-    <script src="libs/moment/min/moment-with-locales.js"></script>
-    <script src="libs/angular/angular.js"></script>
-    <script src="libs/lumx/dist/lumx.js"></script>
-    <script src="libs/angular-route/angular-route.js"></script>
+    <!-- build:js app.js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/velocity/velocity.js"></script>
+    <script src="../bower_components/moment/min/moment-with-locales.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/lumx/dist/lumx.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/webcam-directive/dist/webcam.min.js"></script>
     <script src="app.js"></script>
     <script src="controllers/addPhotosController.js"></script>
     <script src="controllers/profilesController.js"></script>
     <script src="directives/appToolbarDirective.js"></script>
     <script src="directives/titleDirective.js"></script>
     <script src="services/profileService.js"></script>
+    <!-- endbuild -->
   </body>
 </html>

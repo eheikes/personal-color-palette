@@ -14,11 +14,11 @@ var modRewrite = require('connect-modrewrite');
 // var ngtemplates = require('gulp-angular-templatecache');
 // var parseArgs   = require('minimist')
 // var rename      = require('gulp-rename');
-// var rev         = require('gulp-rev');
+var rev         = require('gulp-rev');
 var runSequence = require('run-sequence');
 // var template    = require('gulp-template');
 // var touch       = require('touch');
-// var usemin      = require('gulp-usemin');
+var usemin      = require('gulp-usemin');
 
 // var args = parseArgs(process.argv.slice(2));
 
@@ -64,27 +64,18 @@ gulp.task('connect', function() {
 //     .pipe(gulp.dest('.tmp'));
 // });
 
-// gulp.task('usemin', function () {
-//   return gulp.src('app/index.html')
-//     .pipe(usemin({
-//       css: [minifyCss(), rev()],
-//       js: [rev()]
-//     }))
-//     .pipe(gulp.dest('dist'));
-// });
-
 gulp.task('build', ['clean'], function(done) {
-  return runSequence(['copy:libs', 'copy:src'], done);
+  return runSequence(['copy:fonts', 'copy:partials', 'usemin'], done);
 });
 
-gulp.task('copy:libs', function() {
-  return gulp.src('bower_components/**')
-    .pipe(gulp.dest('dist/libs'));
+gulp.task('copy:fonts', function() {
+  return gulp.src('bower_components/lumx/dist/fonts/**')
+    .pipe(gulp.dest('dist/fonts'));
 });
 
-gulp.task('copy:src', function() {
-  return gulp.src('src/**')
-    .pipe(gulp.dest('dist'));
+gulp.task('copy:partials', function() {
+  return gulp.src('src/partials/**')
+    .pipe(gulp.dest('dist/partials'));
 });
 
 gulp.task('lint', function() {
@@ -101,6 +92,15 @@ gulp.task('serve', function() {
     ['lint', 'build'],
     ['connect', 'watch']
   );
+});
+
+gulp.task('usemin', function () {
+  return gulp.src('src/index.html')
+    .pipe(usemin({
+      css: [rev()],
+      js: [rev()]
+    }))
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('watch', function() {

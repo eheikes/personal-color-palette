@@ -22,6 +22,10 @@
   "dependencies": {
     "angular": "~1.4.7",
     "angular-route": "~1.4.7",
-    "lumx": "~0.3.93"
+    "lumx": "~0.3.93",
+    "webcam-directive": "~3.0.0"
+  },
+  "resolutions": {
+    "angular": "~1.4.7"
   }
 }
