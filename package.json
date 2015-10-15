@@ -29,7 +29,12 @@
     "gulp-jshint": "^1.11.2",
     "gulp-rev": "^6.0.1",
     "gulp-usemin": "^0.3.14",
+    "jasmine-core": "^2.3.4",
     "jshint-stylish": "^2.0.1",
+    "karma": "^0.13.11",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "phantomjs": "^1.9.18",
     "run-sequence": "^1.1.4"
   }
 }

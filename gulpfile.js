@@ -8,6 +8,7 @@ var del         = require('del');
 // var extend      = require('extend');
 var gulp        = require('gulp');
 var jshint      = require('gulp-jshint');
+var Karma       = require('karma').Server;
 // var minifyCss   = require('gulp-minify-css');
 // var mkdirp      = require('mkdirp');
 var modRewrite = require('connect-modrewrite');
@@ -21,6 +22,10 @@ var runSequence = require('run-sequence');
 var usemin      = require('gulp-usemin');
 
 // var args = parseArgs(process.argv.slice(2));
+
+gulp.task('all', function(done) {
+  return runSequence(['lint', 'build'], 'test', done);
+});
 
 gulp.task('clean', function(done) {
   return del('dist');
@@ -89,9 +94,18 @@ gulp.task('lint', function() {
 
 gulp.task('serve', function() {
   return runSequence(
-    ['lint', 'build'],
+    ['all'],
     ['connect', 'watch']
   );
+});
+
+gulp.task('test', ['test:unit']);
+
+gulp.task('test:unit', function(done) {
+  new Karma({
+    configFile: __dirname + '/test/unit/karma.conf.js',
+    singleRun: true
+  }, function() { done(); }).start();
 });
 
 gulp.task('usemin', function () {
@@ -104,7 +118,7 @@ gulp.task('usemin', function () {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['gulpfile.js', 'src/**'], ['lint', 'build']);
+  gulp.watch(['gulpfile.js', 'src/**'], ['all']);
 });
 
-gulp.task('default', ['lint', 'build']);
+gulp.task('default', ['all']);
