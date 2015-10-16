@@ -11,7 +11,7 @@ Then, on the command line, run:
 ```shell
 npm install
 bower install
-gulp
+gulp build
 ```
 
 The app will be compiled into the `dist` folder.
@@ -19,6 +19,14 @@ The app will be compiled into the `dist` folder.
 ## Contributing
 
 Pull requests are welcome! Please add tests and maintain the existing styling when adding and updating the code.
+
+Gulp tasks that will be useful:
+
+```shell
+gulp          # lint, build, and run unit tests
+gulp serve    # run a server at http://localhost:8080 and watch for file changes
+gulp test     # run all tests (local server must be running)
+```
 
 Have an issue or feature request? Please [open a new issue](https://github.com/Banno/personal-color-palette/issues/new).
 
