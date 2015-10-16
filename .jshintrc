@@ -16,7 +16,12 @@
   "strict"        : true,     // true: Requires all functions run in ES5 Strict Mode
   "trailing"      : true,     // true: Prohibit trailing whitespaces
 
+  "jasmine"       : true,
+
   "globals"       : {
-    "angular"     : false
+    "angular"     : false,
+
+    // Protractor
+    "browser"     : false
   }
 }

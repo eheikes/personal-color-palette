@@ -14,6 +14,7 @@ var Karma       = require('karma').Server;
 var modRewrite = require('connect-modrewrite');
 // var ngtemplates = require('gulp-angular-templatecache');
 // var parseArgs   = require('minimist')
+var protractor  = require('gulp-protractor').protractor;
 // var rename      = require('gulp-rename');
 var rev         = require('gulp-rev');
 var runSequence = require('run-sequence');
@@ -24,7 +25,7 @@ var usemin      = require('gulp-usemin');
 // var args = parseArgs(process.argv.slice(2));
 
 gulp.task('all', function(done) {
-  return runSequence(['lint', 'build'], 'test', done);
+  return runSequence(['lint', 'build'], 'test:unit', done);
 });
 
 gulp.task('clean', function(done) {
@@ -86,6 +87,7 @@ gulp.task('copy:partials', function() {
 gulp.task('lint', function() {
   return gulp.src([
     'src/**/*.js',
+    'test/**/*.js',
     'gulpfile.js'
   ])
     .pipe(jshint())
@@ -99,7 +101,18 @@ gulp.task('serve', function() {
   );
 });
 
-gulp.task('test', ['test:unit']);
+gulp.task('test', function(done) {
+  return runSequence('test:unit', 'test:e2e', done);
+});
+
+gulp.task('test:e2e', ['update-webdriver'], function(done) {
+  gulp.src(['test/e2e/test-*.js'])
+    .pipe(protractor({
+        configFile: 'test/e2e/protractor.conf.js'
+    }))
+    .on('error', function(e) { throw e; })
+    .on('end', done);
+});
 
 gulp.task('test:unit', function(done) {
   new Karma({
@@ -107,6 +120,10 @@ gulp.task('test:unit', function(done) {
     singleRun: true
   }, function() { done(); }).start();
 });
+
+/* jshint camelcase:false */
+gulp.task('update-webdriver', require('gulp-protractor').webdriver_update);
+/* jshint camelcase:true */
 
 gulp.task('usemin', function () {
   return gulp.src('src/index.html')
