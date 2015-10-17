@@ -1,49 +1,45 @@
-angular.module('app').factory('profileService', function() {
+(function() {
   'use strict';
-
-  var profiles = [];
-  var currentIndex = null;
 
   var defaultProfile = {
   };
 
-  var addProfile = function(vals) {
+  function ProfileService() {
+    this.profiles = [];
+    this.currentIndex = null;
+  }
+
+  ProfileService.prototype.add = function(vals) {
     var newProfile = angular.extend({}, defaultProfile, vals);
-    profiles.push(newProfile);
+    this.profiles.push(newProfile);
   };
 
-  var getProfile = function() {
-    if (currentIndex === null) {
+  ProfileService.prototype.get = function() {
+    if (this.currentIndex === null) {
       return null;
     } else {
-      return profiles[currentIndex];
+      return this.profiles[this.currentIndex];
     }
   };
 
-  var getProfiles = function() {
-    return profiles;
+  ProfileService.prototype.getAll = function() {
+    return this.profiles;
   };
 
-  var selectNewest = function() {
-    if (profiles.length > 0) {
-      currentIndex = profiles.length - 1;
+  ProfileService.prototype.requireProfile = function() {
+    if (this.currentIndex === null) {
+      this.add();
+      this.selectNewest();
+    }
+  };
+
+  ProfileService.prototype.selectNewest = function() {
+    if (this.profiles.length > 0) {
+      this.currentIndex = this.profiles.length - 1;
     } else {
-      currentIndex = null;
+      this.currentIndex = null;
     }
   };
 
-  var addAndSelectIfEmpty = function() {
-    if (currentIndex === null) {
-      addProfile();
-      selectNewest();
-    }
-  };
-
-  return {
-    add: addProfile,
-    get: getProfile,
-    getAll: getProfiles,
-    requireProfile: addAndSelectIfEmpty,
-    selectNewest: selectNewest
-  };
-});
+  angular.module('app').service('profileService', ProfileService);
+})();
