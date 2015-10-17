@@ -6,6 +6,7 @@
 var connect     = require('gulp-connect');
 var del         = require('del');
 // var extend      = require('extend');
+var flatten     = require('gulp-flatten');
 var gulp        = require('gulp');
 var jshint      = require('gulp-jshint');
 var Karma       = require('karma').Server;
@@ -71,7 +72,7 @@ gulp.task('connect', function() {
 // });
 
 gulp.task('build', ['clean'], function(done) {
-  return runSequence(['copy:fonts', 'copy:partials', 'usemin'], done);
+  return runSequence(['copy:fonts', 'copy:images', 'copy:partials', 'usemin'], done);
 });
 
 gulp.task('copy:fonts', function() {
@@ -79,8 +80,14 @@ gulp.task('copy:fonts', function() {
     .pipe(gulp.dest('dist/fonts'));
 });
 
+gulp.task('copy:images', function() {
+  return gulp.src('src/img/**')
+    .pipe(gulp.dest('dist/img'));
+});
+
 gulp.task('copy:partials', function() {
-  return gulp.src('src/partials/**')
+  return gulp.src('src/**/*.html')
+    .pipe(flatten())
     .pipe(gulp.dest('dist/partials'));
 });
 

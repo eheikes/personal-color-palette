@@ -16,6 +16,7 @@
   "strict"        : true,     // true: Requires all functions run in ES5 Strict Mode
   "trailing"      : true,     // true: Prohibit trailing whitespaces
 
+  "browser"       : true,
   "jasmine"       : true,
 
   "globals"       : {
