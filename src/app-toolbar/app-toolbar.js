@@ -3,7 +3,7 @@ angular.module('app').directive('appToolbar', function($rootScope) {
   return {
     restrict: 'E',
     replace: true,
-    templateUrl: 'partials/appToolbar.html',
+    templateUrl: 'partials/app-toolbar.html',
     link: function(scope, element, attrs) {
       scope.title = $rootScope.title;
     }
