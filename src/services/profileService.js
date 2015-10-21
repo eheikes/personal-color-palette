@@ -1,7 +1,17 @@
 (function() {
   'use strict';
 
+  var photoInfo = {
+    name: '',
+    photoUrl: null,
+    color: null
+  };
   var defaultProfile = {
+    photos: {
+      face: angular.extend({}, photoInfo, { name: 'Face' }),
+      eyes: angular.extend({}, photoInfo, { name: 'Eyes' }),
+      hair: angular.extend({}, photoInfo, { name: 'Hair' })
+    }
   };
 
   function ProfileService() {

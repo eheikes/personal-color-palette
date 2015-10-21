@@ -1,0 +1,26 @@
+<div flex-container="row" flex-gutter="24">
+  <div flex-item ng-repeat="(key, photo) in profile.photos">
+    <div class="card photo-card">
+      <div flex-container="row">
+        <div class="card__img card__img--left">
+          <img ng-show="photo.photoUrl" ng-src="{{photo.photoUrl}}">
+          <img ng-hide="photo.photoUrl" ng-src="http://placehold.it/200x300?text=Add+a+photo">
+        </div>
+
+      <div flex-item flex-container="column">
+        <div flex-item>
+          <div class="p+">
+            <strong class="fs-headline display-block">{{photo.name}}</strong>
+            <div ng-show="photo.photoUrl" class="color-swatch mt" ng-style="{'background-color':photo.color}"></div>
+          </div>
+
+          <div class="card__actions">
+            <button ng-hide="photo.photoUrl" class="btn btn--m btn--primary btn--raised" lx-ripple>Add Photo</button>
+            <button ng-show="photo.photoUrl" class="btn btn--m btn--raised" lx-ripple>Change Photo</button>
+            <button ng-show="photo.photoUrl" class="btn btn--m btn--raised" lx-ripple>Change Color</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

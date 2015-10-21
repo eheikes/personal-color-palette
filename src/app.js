@@ -9,6 +9,10 @@
       templateUrl: 'partials/profiles.html',
       controller: 'profilesController',
     })
+    .when('/photos', {
+      templateUrl: 'partials/photos.html',
+      controller: 'photosController',
+    })
     .when('/photo/add', {
       templateUrl: 'partials/addPhotos.html',
       controller: 'addPhotosController',
