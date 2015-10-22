@@ -9,7 +9,7 @@ angular.module('app').controller('changePhotoController', function(
 ) {
   'use strict';
   $scope.photoType = $filter('lowercase')($routeParams.type);
-  $rootScope.title = 'Add ' + $filter('uppercase')($scope.photoType) + ' Photo';
+  $rootScope.title = 'Add ' + $filter('capitalize')($scope.photoType) + ' Photo';
 
   // TODO -- what if no profile?
   // TODO -- what if photoType is not a valid value?
