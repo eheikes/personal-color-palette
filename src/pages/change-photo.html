@@ -1,14 +1,24 @@
 <div class="mt+ mb+ ml++ mr++">
-  <div flex-container="row" flex-gutter="24">
-    <div flex-item="6" align="right"><img ng-src="{{photoUrl}}"></div>
-    <div flex-item="6">
+  <p class="paragraph fs-title mb+" ng-show="photoType === 'face'">
+    Please take a picture of your face in natural light.
+  </p>
+  <p class="paragraph fs-title mb+" ng-show="photoType === 'eyes'">
+    Please take a picture of just your eyes.
+  </p>
+  <p class="paragraph fs-title mb+" ng-show="photoType === 'hair'">
+    Please take a picture of just your hair.
+  </p>
+  <div>
+    <div ng-show="photoUrl"><img ng-src="{{photoUrl}}"></div>
+    <div ng-hide="photoUrl">
       <button class="btn btn--xl btn--primary btn--raised" lx-ripple ng-click="openWebcamDialog()">Use Webcam</button>
       <file-upload-button on-upload="onFileUpload(files, event)">Upload Photo</file-upload-button>
     </div>
   </div>
 </div>
 <div class="p" align="right">
-  <button class="btn btn--m btn--primary btn--raised" lx-ripple ng-disabled="!hasPhoto()">Continue</button>
+  <a href="/photos" class="btn btn--m btn--raised" lx-ripple>Cancel</a>
+  <button class="btn btn--m btn--primary btn--raised" lx-ripple ng-disabled="!photoUrl">Continue</button>
 </div>
 
 <lx-dialog class="dialog dialog--l" id="webcamDialog" auto-close="true" onclose="closingDialog()" onscrollend="scrollEndDialog()">

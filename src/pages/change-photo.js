@@ -1,19 +1,20 @@
-angular.module('app').controller('addPhotosController', function(
+angular.module('app').controller('changePhotoController', function(
   $scope,
   $rootScope,
+  $routeParams,
+  $filter,
   LxDialogService,
   LxNotificationService,
   profileService
 ) {
   'use strict';
-  $rootScope.title = 'Add Photo';
-  profileService.requireProfile();
+  $scope.photoType = $filter('lowercase')($routeParams.type);
+  $rootScope.title = 'Add ' + $filter('uppercase')($scope.photoType) + ' Photo';
 
-  $scope.defaultUrl = 'http://placehold.it/300x300?text=Take+or+upload+a+photo';
-  $scope.photoUrl = $scope.defaultUrl;
-  $scope.hasPhoto = function() {
-    return $scope.photoUrl !== $scope.defaultUrl;
-  };
+  // TODO -- what if no profile?
+  // TODO -- what if photoType is not a valid value?
+
+  $scope.photoUrl = null;
 
   //
   // File upload stuff.

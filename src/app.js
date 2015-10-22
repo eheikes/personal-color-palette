@@ -13,9 +13,9 @@
       templateUrl: 'partials/photos.html',
       controller: 'photosController',
     })
-    .when('/photo/add', {
-      templateUrl: 'partials/addPhotos.html',
-      controller: 'addPhotosController',
+    .when('/photos/:type/photo', {
+      templateUrl: 'partials/change-photo.html',
+      controller: 'changePhotoController',
     })
     .otherwise({ redirectTo: '/profiles' });
   });

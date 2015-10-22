@@ -15,9 +15,9 @@
           </div>
 
           <div class="card__actions">
-            <button ng-hide="photo.photoUrl" class="btn btn--m btn--primary btn--raised" lx-ripple>Add Photo</button>
-            <button ng-show="photo.photoUrl" class="btn btn--m btn--raised" lx-ripple>Change Photo</button>
-            <button ng-show="photo.photoUrl" class="btn btn--m btn--raised" lx-ripple>Change Color</button>
+            <a href="/photos/{{photo.name | lowercase}}/photo" ng-hide="photo.photoUrl" class="btn btn--m btn--primary btn--raised" lx-ripple>Add Photo</a>
+            <a href="/photos/{{photo.name | lowercase}}/photo" ng-show="photo.photoUrl" class="btn btn--m btn--raised" lx-ripple>Change Photo</a>
+            <a href="/photos/{{photo.name | lowercase}}/color" ng-show="photo.photoUrl" class="btn btn--m btn--raised" lx-ripple>Change Color</a>
           </div>
         </div>
       </div>
