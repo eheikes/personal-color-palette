@@ -1,4 +1,4 @@
-# Personal Color Palette
+# Personal Color Palette [WIP]
 
 Create your own color palette with this app, based on the process from [a Seamwork article by Elizabeth Farr](https://www.seamworkmag.com/issues/2015/05/design-a-personal-color-palette).
 
