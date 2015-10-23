@@ -7,6 +7,7 @@ var connect     = require('gulp-connect');
 var del         = require('del');
 // var extend      = require('extend');
 var flatten     = require('gulp-flatten');
+var ghPages     = require('gulp-gh-pages');
 var gulp        = require('gulp');
 var jshint      = require('gulp-jshint');
 var Karma       = require('karma').Server;
@@ -93,6 +94,11 @@ gulp.task('lint', function() {
   ])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
+});
+
+gulp.task('publish', function() {
+  return gulp.src('dist/**/*')
+    .pipe(ghPages());
 });
 
 gulp.task('serve', function() {
