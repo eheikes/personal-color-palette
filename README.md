@@ -2,6 +2,8 @@
 
 Create your own color palette with this app, based on the process from [a Seamwork article by Elizabeth Farr](https://www.seamworkmag.com/issues/2015/05/design-a-personal-color-palette).
 
+Use the app here: [eheikes.github.io/personal-color-palette](http://eheikes.github.io/personal-color-palette)
+
 ## Installation
 
 To build the app, you'll need [Node/npm](https://nodejs.org), [Bower](http://bower.io/), and [gulp](http://gulpjs.com/) installed on your machine.
