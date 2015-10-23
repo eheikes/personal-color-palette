@@ -2,7 +2,7 @@
   'use strict';
   var app = angular.module('app', ['ngRoute', 'lumx'])
   .config(function($routeProvider, $locationProvider) {
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(false);
 
     $routeProvider
     .when('/profiles', {

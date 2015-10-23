@@ -12,7 +12,6 @@ var jshint      = require('gulp-jshint');
 var Karma       = require('karma').Server;
 // var minifyCss   = require('gulp-minify-css');
 // var mkdirp      = require('mkdirp');
-var modRewrite = require('connect-modrewrite');
 // var ngtemplates = require('gulp-angular-templatecache');
 // var parseArgs   = require('minimist')
 var protractor  = require('gulp-protractor').protractor;
@@ -37,12 +36,7 @@ gulp.task('connect', function() {
   connect.server({
     root: 'dist',
     port: 8080,
-    livereload: false,
-    middleware: function(connect) {
-      return [
-        modRewrite(['!(\\.) /index.html [L]'])
-      ];
-    }
+    livereload: false
   });
 });
 

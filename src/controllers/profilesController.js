@@ -11,6 +11,6 @@ angular.module('app').controller('profilesController', function(
   $scope.createAndContinue = function() {
     profileService.add();
     profileService.selectNewest();
-    $location.path('/photos');
+    $location.path('photos');
   };
 });
