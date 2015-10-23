@@ -98,7 +98,7 @@ gulp.task('lint', function() {
 
 gulp.task('publish', function() {
   return gulp.src('dist/**/*')
-    .pipe(ghPages());
+    .pipe(ghPages({ message: 'Publish to gh-pages on [timestamp]' }));
 });
 
 gulp.task('serve', function() {
