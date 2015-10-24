@@ -1,3 +1,13 @@
 <div class="toolbar bgc-primary tc-white">
+  <lx-dropdown class="toolbar__left mr+++" from-top="true" width="200">
+    <button class="btn btn--l btn--white btn--icon" lx-ripple lx-dropdown-toggle>
+      <i class="mdi mdi-menu"></i>
+    </button>
+    <lx-dropdown-menu>
+      <ul>
+        <li><a href="#/profiles" class="dropdown-link">Profiles</a></li>
+      </ul>
+    </lx-dropdown-menu>
+  </lx-dropdown>
   <h1 class="toolbar__label fs-title">{{title}}</h1>
 </div>
