@@ -23,7 +23,7 @@
     "angular": "~1.4.7",
     "angular-route": "~1.4.7",
     "lumx": "~0.3.93",
-    "webcam-directive": "~3.0.0"
+    "webcamjs": "~1.0.4"
   },
   "resolutions": {
     "angular": "~1.4.7"
