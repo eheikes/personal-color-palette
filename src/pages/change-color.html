@@ -1,0 +1,18 @@
+<div class="mt+ mb+ ml++ mr++">
+  <p class="paragraph fs-title mb+" ng-show="photoType === 'face'">
+    Please select the color of your skin.
+  </p>
+  <p class="paragraph fs-title mb+" ng-show="photoType === 'eyes'">
+    Please select the color of your eyes.
+  </p>
+  <p class="paragraph fs-title mb+" ng-show="photoType === 'hair'">
+    Please select the color of your hair.
+  </p>
+  <div>
+    <img ng-src="{{photoUrl}}">
+  </div>
+</div>
+<div class="p" align="right">
+  <a href="#/photos" class="btn btn--m btn--raised" lx-ripple ng-click="cancel()">Cancel</a>
+  <button class="btn btn--m btn--primary btn--raised" lx-ripple ng-disabled="!photoColor" ng-click="saveAndContinue()">Continue</button>
+</div>

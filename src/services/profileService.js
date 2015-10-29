@@ -43,6 +43,10 @@
     }
   };
 
+  ProfileService.prototype.savePhoto = function(type, url) {
+    this.profiles[this.currentIndex].photos[type].photoUrl = url;
+  };
+
   ProfileService.prototype.selectNewest = function() {
     if (this.profiles.length > 0) {
       this.currentIndex = this.profiles.length - 1;

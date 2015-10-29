@@ -1,6 +1,7 @@
 angular.module('app').controller('changePhotoController', function(
   $scope,
   $rootScope,
+  $location,
   $routeParams,
   $filter,
   LxDialogService,
@@ -17,6 +18,8 @@ angular.module('app').controller('changePhotoController', function(
   $scope.photoUrl = null;
   $scope.saveAndContinue = function() {
     if (!$scope.photoUrl) { return; }
+    profileService.savePhoto($scope.photoType, $scope.photoUrl);
+    $location.path('photos/' + $scope.photoType + '/color');
   };
 
   //

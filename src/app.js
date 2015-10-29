@@ -17,6 +17,10 @@
       templateUrl: 'partials/change-photo.html',
       controller: 'changePhotoController',
     })
+    .when('/photos/:type/color', {
+      templateUrl: 'partials/change-color.html',
+      controller: 'changeColorController',
+    })
     .otherwise({ redirectTo: '/profiles' });
   });
 })();
