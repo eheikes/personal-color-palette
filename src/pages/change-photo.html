@@ -18,25 +18,26 @@
 </div>
 <div class="p" align="right">
   <a href="#/photos" class="btn btn--m btn--raised" lx-ripple>Cancel</a>
-  <button class="btn btn--m btn--primary btn--raised" lx-ripple ng-disabled="!photoUrl">Continue</button>
+  <button class="btn btn--m btn--primary btn--raised" lx-ripple ng-disabled="!photoUrl" ng-click="saveAndContinue()">Continue</button>
 </div>
 
-<lx-dialog class="dialog dialog--l" id="webcamDialog" auto-close="true" onclose="closingDialog()" onscrollend="scrollEndDialog()">
+<lx-dialog class="dialog dialog--l" id="webcamDialog" auto-close="true">
   <div class="dialog__header">
     <div class="toolbar bgc-primary tc-white">
-      <span class="toolbar__label fs-title">Take Photo</span>
+      <span class="toolbar__label fs-title">Smile!</span>
     </div>
   </div>
   <div class="dialog__content">
-    <webcam
-      on-streaming="onWebcamSuccess()"
-      on-error="onWebcamError(err)"
-      channel="webcamChannel">
-    </webcam>
+    <div class="m+" flex-container="column" flex-align="space-between center">
+      <webcam
+        on-capture="onWebcamCapture(dataUrl)"
+        on-error="onWebcamError(err)"
+        on-stream="onWebcamStream()"
+      ></webcam>
+    </div>
   </div>
   <div class="dialog__actions">
     <button class="btn btn--m" lx-ripple lx-dialog-close>Cancel</button>
-    <button class="btn btn--m btn--primary btn--raised" lx-ripple ng-disabled="webcamImage === null">Use Photo</button>
+    <button class="btn btn--m btn--primary btn--raised" lx-ripple ng-disabled="!webcamEnabled" ng-click="takeWebcamPhoto()">Take Photo</button>
   </div>
 </lx-dialog>
-

@@ -15,6 +15,9 @@ angular.module('app').controller('changePhotoController', function(
   // TODO -- what if photoType is not a valid value?
 
   $scope.photoUrl = null;
+  $scope.saveAndContinue = function() {
+    if (!$scope.photoUrl) { return; }
+  };
 
   //
   // File upload stuff.
@@ -43,18 +46,27 @@ angular.module('app').controller('changePhotoController', function(
   //
   // Webcam stuff.
   //
-  $scope.webcamChannel = {};
+  $scope.webcamEnabled = false;
 
   $scope.openWebcamDialog = function() {
-    $scope.webcamImage = null;
     LxDialogService.open('webcamDialog');
   };
 
-  $scope.onWebcamSuccess = function() {
+  $scope.onWebcamCapture = function(dataUrl) {
+    $scope.photoUrl = dataUrl;
   };
 
   $scope.onWebcamError = function(err) {
+    $scope.webcamEnabled = false;
     LxNotificationService.error('Please enable your webcam to take a photo.');
   };
 
+  $scope.onWebcamStream = function() {
+    $scope.webcamEnabled = true;
+  };
+
+  $scope.takeWebcamPhoto = function() {
+    $scope.$broadcast('capture');
+    LxDialogService.close('webcamDialog');
+  };
 });
