@@ -1,29 +1,17 @@
 /* jshint node:true */
 'use strict';
 
-// var concat      = require('gulp-concat');
-// var config      = require('config');
 var connect     = require('gulp-connect');
 var del         = require('del');
-// var extend      = require('extend');
 var flatten     = require('gulp-flatten');
 var ghPages     = require('gulp-gh-pages');
 var gulp        = require('gulp');
 var jshint      = require('gulp-jshint');
 var Karma       = require('karma').Server;
-// var minifyCss   = require('gulp-minify-css');
-// var mkdirp      = require('mkdirp');
-// var ngtemplates = require('gulp-angular-templatecache');
-// var parseArgs   = require('minimist')
 var protractor  = require('gulp-protractor').protractor;
-// var rename      = require('gulp-rename');
 var rev         = require('gulp-rev');
 var runSequence = require('run-sequence');
-// var template    = require('gulp-template');
-// var touch       = require('touch');
 var usemin      = require('gulp-usemin');
-
-// var args = parseArgs(process.argv.slice(2));
 
 gulp.task('all', function(done) {
   return runSequence(['lint', 'build'], 'test:unit', done);
@@ -40,31 +28,6 @@ gulp.task('connect', function() {
     livereload: false
   });
 });
-
-// gulp.task('copy:mocks', function() {
-//   if (args.mocks) {
-//     return gulp.src([
-//       'bower_components/angular-mocks/angular-mocks.js',
-//       'bower_components/Faker/build/build/faker.js',
-//       'app/mockApiService.js'
-//     ])
-//       .pipe(concat('mocks.js'))
-//       .pipe(gulp.dest('.tmp'));
-//   } else {
-//     mkdirp.sync('.tmp');
-//     touch.sync('.tmp/mocks.js');
-//     return;
-//   }
-// });
-
-// gulp.task('ngtemplates', function() {
-//   gulp.src('app/views/*.html')
-//     .pipe(ngtemplates({
-//       module: 'jarvis',
-//       filename: 'templates.js'
-//     }))
-//     .pipe(gulp.dest('.tmp'));
-// });
 
 gulp.task('build', ['clean'], function(done) {
   return runSequence(['copy:fonts', 'copy:images', 'copy:partials', 'usemin'], done);
