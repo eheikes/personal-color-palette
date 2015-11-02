@@ -43,6 +43,10 @@
     }
   };
 
+  ProfileService.prototype.saveColor = function(type, color) {
+    // TODO
+  };
+
   ProfileService.prototype.savePhoto = function(type, url) {
     this.profiles[this.currentIndex].photos[type].photoUrl = url;
   };

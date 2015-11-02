@@ -22,6 +22,10 @@
   "globals"       : {
     "angular"     : false,
 
+    // Angular mocks
+    "inject"      : false,
+    "module"      : false,
+
     // Protractor
     "browser"     : false
   }
