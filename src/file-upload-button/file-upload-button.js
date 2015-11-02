@@ -4,20 +4,19 @@
 //
 angular.module('app').directive('fileUploadButton', function() {
   'use strict';
+  var counter = 0;
   return {
     restrict: 'E',
     replace: true,
     transclude: true,
     templateUrl: 'partials/file-upload-button.html',
     scope: {
-      id: '@',
       onUpload: '&'
     },
     link: function(scope, element, attrs) {
-      // Generate a pseudo-random ID if none is given.
-      if (typeof scope.id === 'undefined') {
-        scope.id = 'id-' + Date.now();
-      }
+      // Generate a pseudo-random ID.
+      scope.id = 'file-upload-' + counter;
+      counter++;
 
       // Handle the file upload.
       element.on('change', function(e) {
