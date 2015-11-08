@@ -21,6 +21,9 @@
     "url": "https://github.com/eheikes/personal-color-palette/issues"
   },
   "homepage": "https://github.com/eheikes/personal-color-palette",
+  "scripts": {
+    "test": "gulp build && gulp test:unit"
+  },
   "devDependencies": {
     "angular-mocks": "^1.4.7",
     "blob-polyfill": "bjornstar/blob-polyfill#1.0.20150320",
