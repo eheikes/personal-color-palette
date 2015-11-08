@@ -22,6 +22,9 @@
   ProfileService.prototype.add = function(vals) {
     var newProfile = angular.extend({}, defaultProfile, vals);
     this.profiles.push(newProfile);
+    if (this.currentIndex === null) {
+      this.selectNewest();
+    }
   };
 
   ProfileService.prototype.get = function() {
