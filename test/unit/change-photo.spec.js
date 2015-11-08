@@ -105,7 +105,7 @@ describe('"change photo" page', function() {
 
       it('should leave the photo URL untouched', function() {
         expect(scope.photoUrl).toBe(null);
-      })
+      });
 
       it('should not display an error', function() {
         expect(LxNotificationService.error).not.toHaveBeenCalled();

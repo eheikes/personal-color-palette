@@ -49,7 +49,7 @@ describe('profileService', function() {
       profileService.add({ id: 2 });
       profileService.add({ id: 3 });
       profileService.selectNewest();
-    })
+    });
 
     it('add() should not change the currently selected profile', function() {
       profileService.add({ id: 4 });
